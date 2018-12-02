@@ -67,8 +67,8 @@ basic.forever(function () {
     //   console.logValue("x", jx)
     //   console.logValue("y", jy)
     if (Start) {
-       
-        Speed = Math.idiv(jy - InitY, CHANGE_STEP *2) * CHANGE_STEP
+
+        Speed = Math.idiv(jy - InitY, CHANGE_STEP * 2) * CHANGE_STEP
         Speed = Math.idiv(Speed, 6 - Gear)
         PosX = Math.idiv(jx - InitX, CHANGE_STEP * 2) * CHANGE_STEP
         if (PosX > 0) {
