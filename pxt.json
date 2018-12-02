@@ -4,7 +4,9 @@
     "description": "",
     "dependencies": {
         "core": "*",
-        "radio": "*"
+        "radio": "*",
+        "WSJoyStick": "github:waveshare/joystick#e090d95944ae0fc614f708461498dbf875ef1243",
+        "pxt-robot1": "github:rotysz/pxt-robot1#v0.0.27"
     },
     "files": [
         "README.md",
@@ -13,6 +15,5 @@
     "testFiles": [
         "test.ts"
     ],
-    "public": false,
-    "additionalFilePaths": []
+    "public": false
 }
