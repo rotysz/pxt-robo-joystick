@@ -16,6 +16,8 @@ let Gear = 1
 radio.setGroup(2)
 WSJoyStick.JoyStickInit()
 DisplayGear(Gear, FastTurn)
+InitX = pins.analogReadPin(AnalogPin.P1)
+InitY = pins.analogReadPin(AnalogPin.P2)
 
 
 function DisplayGear(Gear: number, FastTurn: boolean) {
@@ -27,26 +29,25 @@ function DisplayGear(Gear: number, FastTurn: boolean) {
     }
 }
 
-WSJoyStick.onKey(KEY.C, function () {
+WSJoyStick.onKey(KEY.D, function () {
     FastTurn = !FastTurn
     DisplayGear(Gear, FastTurn)
 })
 
-WSJoyStick.onKey(KEY.D, function () {
+WSJoyStick.onKey(KEY.E, function () {
     if (Gear < 5) Gear++
     DisplayGear(Gear, FastTurn)
 })
 
-WSJoyStick.onKey(KEY.F, function () {
+WSJoyStick.onKey(KEY.C, function () {
     if (Gear > 1) Gear--
     DisplayGear(Gear, FastTurn)
 })
 
 
-WSJoyStick.onKey(KEY.E, function () {
-    InitX = pins.analogReadPin(AnalogPin.P1)
-    InitY = pins.analogReadPin(AnalogPin.P2)
+WSJoyStick.onKey(KEY.P, function () {
     Start = true
+    Robot.WyswietlObraz("1111100001000100010001000")
     Robot.Predkosc(0)
     Robot.DoPrzodu(60000)
 })
@@ -78,10 +79,10 @@ basic.forever(function () {
             SpeedR = Speed
             SpeedL = SpeedCalc(FastTurn, Speed, PosX)
         }
-        Robot.ZmienPredkosc(SpeedL, SpeedR)
+        //Robot.ZmienPredkosc(SpeedL, SpeedR)
 
         if ((PrevSpeedR != SpeedR) || (PrevSpeedL != SpeedL)) {
-            //    Robot.ZmienPredkosc(SpeedL, SpeedR)
+            Robot.ZmienPredkosc(SpeedL, SpeedR)
             PrevSpeedL = SpeedL
             PrevSpeedR = SpeedR
             console.logValue("SpeedL", SpeedL)
