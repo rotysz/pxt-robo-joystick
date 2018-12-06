@@ -47,7 +47,7 @@ WSJoyStick.onKey(KEY.C, function () {
 
 WSJoyStick.onKey(KEY.P, function () {
     Start = true
-    Robot.WyswietlObraz("1111100001000100010001000")
+    Robot.WyswietlObraz("00100 01110 10101 00100 00100")
     Robot.Predkosc(0)
     Robot.DoPrzodu(60000)
 })
@@ -89,6 +89,10 @@ basic.forever(function () {
             console.logValue("SpeedR", SpeedR)
         }
 
+    }
+    if (Start && !Robot.CzyWRuchu()) {
+        Robot.WyswietlIkone(IconNames.Square)
+        Start = false
     }
     basic.pause(50)
 }) 
