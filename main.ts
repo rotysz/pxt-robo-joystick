@@ -48,6 +48,11 @@ WSJoyStick.onKey(KEY.C, function () {
     DisplayGear(Gear, FastTurn)
 })
 
+input.onButtonPressed(Button.AB, function () {
+   Channel = Channel + 10
+   radio.setGroup(Channel)
+   basic.showString("ch=" + Channel.toString()) 
+})
 
 WSJoyStick.onKey(KEY.P, function () {
     Start = true
