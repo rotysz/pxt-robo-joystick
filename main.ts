@@ -12,9 +12,13 @@ let PosY = 0
 let SpeedR = 0
 let SpeedL = 0
 let Gear = 1
+let Channel = 2
 
-radio.setGroup(2)
+
 WSJoyStick.JoyStickInit()
+if (input.buttonIsPressed(Button.A)) Channel = 1
+radio.setGroup(Channel)
+basic.showString("ch=" + Channel.toString()) 
 DisplayGear(Gear, FastTurn)
 InitX = pins.analogReadPin(AnalogPin.P1)
 InitY = pins.analogReadPin(AnalogPin.P2)
